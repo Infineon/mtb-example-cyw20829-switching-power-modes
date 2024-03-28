@@ -1,6 +1,6 @@
 # AIROC&trade; CYW20829 Bluetooth&reg; LE SoC: Switching power modes
 
-This code example demonstrates how to manage the AIROC&trade; CYW20829 power system and modes. CYW20829 has the following power configurations:
+This code example demonstrates how to manage the AIROC&trade; CYW20829/CYW89829 power system and modes. CYW20829/CYW89829 has the following power configurations:
 
 - Power system - Low-power/ultra-low-power systems
 - Power modes - Active/Sleep/DeepSleep/DeepSleep-RAM/Hibernate
@@ -8,7 +8,7 @@ This code example demonstrates how to manage the AIROC&trade; CYW20829 power sys
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-example-cyw20829-switching-power-modes)
 
-[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzkxNzgiLCJTcGVjIE51bWJlciI6IjAwMi0zOTE3OCIsIkRvYyBUaXRsZSI6IkFJUk9DJnRyYWRlOyBDWVcyMDgyOSBCbHVldG9vdGgmcmVnOyBMRSBTb0M6IFN3aXRjaGluZyBwb3dlciBtb2RlcyIsInJpZCI6Inlha2t1bmRpIiwiRG9jIHZlcnNpb24iOiIxLjAuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiQlRBQkxFIn0=)
+[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzkxNzgiLCJTcGVjIE51bWJlciI6IjAwMi0zOTE3OCIsIkRvYyBUaXRsZSI6IkFJUk9DJnRyYWRlOyBDWVcyMDgyOSBCbHVldG9vdGgmcmVnOyBMRSBTb0M6IFN3aXRjaGluZyBwb3dlciBtb2RlcyIsInJpZCI6Inlha2t1bmRpIiwiRG9jIHZlcnNpb24iOiIxLjEuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiQlRBQkxFIn0=)
 
 
 ## Overview
@@ -17,6 +17,8 @@ This code example shows how the device can operate in low-power and ultra-low-po
 
 The code example uses the user button 1 (User BTN 1) to change the power modes. After the system goes to Hibernate mode, it waits for the wakeup sources. User button 2 (User BTN 2) changes the power system from low-power and ultra-low-power systems and vice versa. This code example shows user button 1 as a wakeup source. **Figure 1** shows the state machine implemented in the firmware to execute the transitions.
 
+ **Note:** There is only button 1 on the kit CYW989829M2EVB-01. Button 2 is assigned to P1.0 (D3), you need to use a wire to connect P1.0 with GND to act as button pressing.
+
 **Figure 1. Switching power mode software state machine**
 
 ![](images/state_machine.png)
@@ -24,10 +26,11 @@ The code example uses the user button 1 (User BTN 1) to change the power modes. 
 ## Requirements
 
 - [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.0 or later (tested with v3.0)
-- Board support package (BSP) minimum required version: 1.0.1
+- Board support package (BSP) minimum required version: 
    - CYW920829M2EVK-02: 1.0.1
+   - CYW989829M2EVB-01: 1.0.2
 - Programming language: C
-- Associated parts: [AIROC&trade; CYW20829 Bluetooth&reg; LE SoC](https://www.infineon.com/cms/en/product/promopages/airoc20829)
+- Associated parts: [AIROC&trade; CYW20829 Bluetooth&reg; LE SoC](https://www.infineon.com/cms/en/product/promopages/airoc20829) and AIROC&trade; CYW89829 Bluetooth&reg; LE SoC
 
 ## Supported toolchains (make variable 'TOOLCHAIN')
 
@@ -36,6 +39,7 @@ The code example uses the user button 1 (User BTN 1) to change the power modes. 
 ## Supported kits (make variable 'TARGET')
 
 - AIROC&trade; CYW20829 Bluetooth&reg; LE Evaluation Kit (`CYW920829M2EVK-02`) – Default value of `TARGET`
+- AIROC&trade; CYW89829 Bluetooth&reg; LE evaluation kit – (`CYW989829M2EVB-01`)
 
 
 ## Hardware setup
@@ -265,7 +269,19 @@ This example configures the user button 1 to switch the power modes and user but
 
 <br>
 
-> **Note:** **Table 1** and **Table 2** show the cumulative power consumption of VBAT, VDDPA, and VDDIO power rails and the voltage across the TP1 will be 0.9 V when the device is in DeepSleep mode. When CYW920829M2EVK-02 external flash is connected to VDDIO and voltage regulator, the measured current on VDDIO may depend on the selected external serial flash and voltage regulator.
+**Table 3.  CYW89829 current in different modes PILO with 3 V**
+
+ Power modes   |  Normal power system   | Low-power system
+ :-------      | :------------          | :------------   
+ Active        |       4.22 mA          |       1.13 mA    
+ Sleep         |       2.31 mA          |       976 uA     
+ DeepSleep     |       7.67 uA          |       7.67 uA    
+ DeepSleep-RAM |       7.15 uA          |       7.15 uA     
+ Hibernate     |       2.62 uA          |       2.62 uA    
+
+<br>
+
+> **Note:** **Table 1**, **Table 2** and **Table 3** show the cumulative power consumption of VBAT, VDDPA, and VDDIO power rails and the voltage across the TP1 will be 0.9 V when the device is in DeepSleep mode. When CYW920829M2EVK-02 external flash is connected to VDDIO and voltage regulator, the measured current on VDDIO may depend on the selected external serial flash and voltage regulator.
 
 **Figure 3. Flowchart**
 
@@ -317,6 +333,7 @@ Document title: *CE239178* – *AIROC&trade; CYW20829 Bluetooth&reg; LE SoC: Swi
  Version | Description of change
  ------- | ---------------------
  1.0.0   | New code example
+ 1.1.0   | Added support for CYW989829M2EVB-01
 <br>
 
 
