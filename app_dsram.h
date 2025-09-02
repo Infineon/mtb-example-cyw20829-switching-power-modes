@@ -5,7 +5,7 @@
 *
 *
 ********************************************************************************
-* Copyright 2021-2024, Cypress Semiconductor Corporation (an Infineon company) or
+* Copyright 2021-2025, Cypress Semiconductor Corporation (an Infineon company) or
 * an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
 * This software, including source code, documentation and related
@@ -53,6 +53,8 @@
 * Global Variables
 *******************************************************************************/
 extern unsigned int __StackTop;
+extern unsigned int CSTACK$$Limit;
+extern unsigned int Image$$ARM_LIB_STACK$$ZI$$Limit;
 extern uint8_t warm_boot;
 extern cy_stc_syspm_warmboot_entrypoint_t syspm_app_dsram_entry_point;
 

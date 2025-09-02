@@ -8,7 +8,7 @@ This code example demonstrates how to manage the AIROC&trade; CYW20829/CYW89829 
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-example-cyw20829-switching-power-modes)
 
-[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzkxNzgiLCJTcGVjIE51bWJlciI6IjAwMi0zOTE3OCIsIkRvYyBUaXRsZSI6IkFJUk9DJnRyYWRlOyBDWVcyMDgyOSBCbHVldG9vdGgmcmVnOyBMRSBTb0M6IFN3aXRjaGluZyBwb3dlciBtb2RlcyIsInJpZCI6Inlha2t1bmRpIiwiRG9jIHZlcnNpb24iOiIxLjIuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiQlRBQkxFIn0=)
+[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzkxNzgiLCJTcGVjIE51bWJlciI6IjAwMi0zOTE3OCIsIkRvYyBUaXRsZSI6IkFJUk9DJnRyYWRlOyBDWVcyMDgyOSBCbHVldG9vdGgmcmVnOyBMRSBTb0M6IFN3aXRjaGluZyBwb3dlciBtb2RlcyIsInJpZCI6Inlha2t1bmRpIiwiRG9jIHZlcnNpb24iOiIxLjMuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiQlRBQkxFIn0=)
 
 
 ## Overview
@@ -27,8 +27,8 @@ The code example uses the user button 1 (User BTN 1) to change the power modes. 
 
 - [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.0 or later (tested with v3.0)
 - Board support package (BSP) minimum required version: 
-   - CYW920829M2EVK-02: 1.0.1
-   - CYW989829M2EVB-01: 1.0.4
+   - CYW920829M2EVK-02: 3.0.0
+   - CYW989829M2EVB-01: 3.0.0
 - Programming language: C
 - Associated parts: [AIROC&trade; CYW20829 Bluetooth&reg; LE SoC](https://www.infineon.com/cms/en/product/promopages/airoc20829) and AIROC&trade; CYW89829 Bluetooth&reg; LE SoC
 
@@ -335,6 +335,8 @@ Document title: *CE239178* – *AIROC&trade; CYW20829 Bluetooth&reg; LE SoC: Swi
  1.0.0   | New code example
  1.1.0   | Added support for CYW989829M2EVB-01
  1.2.0   | Updated device mpn of CYW989829M2EVB-01
+ 1.2.1   | Added identifier for IAR and ARM
+ 1.3.0   | Updated device mpn from CYW89829B0232 to CYW89829B1232 and CYW20829B0LKML to CYW20829B1010
 
 <br>
 
